@@ -1,4 +1,5 @@
 # burger-app-course
+Course from Udemy: https://udemy.com/course/react-the-complete-guide-incl-redux
 
 ### Create structure - typical for React projects
 - in containers folder will be stored stateful components
