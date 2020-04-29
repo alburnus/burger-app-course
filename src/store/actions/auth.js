@@ -22,6 +22,21 @@ export const authFail = (error) => {
     };
 };
 
+export const logout = () => {
+    return {
+        type: actionTypes.AUTH_LOGOUT
+    };
+};
+
+export const checkAuthTimeout = (expirationTime) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(logout());
+        }, expirationTime * 1000); // setTimeout is in ms, so I need to multiply * 1000 = sec
+
+    };
+};
+
 export const auth = (email, password, isSignup) => {
     return dispatch => {
         dispatch(authStart());
@@ -39,6 +54,7 @@ export const auth = (email, password, isSignup) => {
                 // idToken, localId are from Firebase response
                 // we need .data because response is wrapped by axios
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
+                dispatch(checkAuthTimeout(response.data.expiresIn));
             })
             .catch(err => {
                 // we need .data because response is wrapped by axios
