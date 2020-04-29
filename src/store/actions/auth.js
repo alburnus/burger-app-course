@@ -36,13 +36,13 @@ export const auth = (email, password, isSignup) => {
         }
         axios.post(url, authData)
             .then(response => {
-                console.log(response);
                 // idToken, localId are from Firebase response
+                // we need .data because response is wrapped by axios
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
             })
             .catch(err => {
-                console.log(err);
-                dispatch(authFail(err));
+                // we need .data because response is wrapped by axios
+                dispatch(authFail(err.response.data.error));
             })
     };
 };
