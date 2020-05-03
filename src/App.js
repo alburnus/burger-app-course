@@ -14,13 +14,17 @@ class App extends Component {
     componentDidMount() {
         this.props.onTryAutoSignup();
     }
+    // <Route path="/auth" component={Auth}/>
+    // <Route path="/" exact component={BurgerBuilder}/>
+    // <Redirect to="/"/>
+    // <!-- Unknow URLS will be redirect to "/". For example /orders -> / It's becaus we do not know anything about /orders -->
 
     render() {
         let routes = (
             <Switch>
                 <Route path="/auth" component={Auth}/>
                 <Route path="/" exact component={BurgerBuilder}/>
-                <Redirect to="/"/> <!-- Unknow URLS will be redirect to "/". For example /orders -> / It's becaus we do not know anything about /orders-->
+                <Redirect to="/"/>
             </Switch>
 
         );
@@ -32,7 +36,7 @@ class App extends Component {
                     <Route path="/orders" component={Orders}/>
                     <Route path="/logout" component={Logout}/>
                     <Route path="/" exact component={BurgerBuilder}/>
-                    <Redirect to="/"/> <!-- Unknow URLS will be redirect to "/". For example /orders -> / It's becaus we do not know anything about /orders-->
+                    <Redirect to="/"/>
                 </Switch>
             );
         }
