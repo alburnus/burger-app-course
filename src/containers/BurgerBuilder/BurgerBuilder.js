@@ -13,7 +13,9 @@ import * as actions from '../../store/actions/index';
 
 import axios from "../../axios-orders";
 
-class BurgerBuilder extends Component {
+// Change to export for test it
+// After add export I don't need to connect to Redux: connect(mapStateToProps, mapDispatchToProps)
+export class BurgerBuilder extends Component {
 
     // set state = the same result as constructor
     state = {
