@@ -25,7 +25,7 @@ describe('<NavigationItems />', () => {
         expect(wrapper.find(NavigationItem)).toHaveLength(3); // Now NavigationItem is no JSX
     });
 
-    it('should render three navigation items if authenticated', () => {
+    it('should render logout button if authenticated', () => {
         wrapper.setProps({isAuthenticated: true});
         expect(wrapper.contains(<NavigationItem link="/logout">Logout</NavigationItem>)).toEqual(true);
     });
